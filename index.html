@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="theme-color" content="#101c2a" />
+  <title>Metro Line — City Bus Simulator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main id="game-shell">
+    <div id="viewport" aria-label="3D city bus simulator">
+      <div id="loading"><div class="loader-mark">M</div><span>STARTING YOUR ROUTE</span></div>
+      <div class="topbar">
+        <div class="brand"><div class="brand-icon">M</div><div><strong>METRO LINE</strong><small>URBAN TRANSIT SIMULATOR</small></div></div>
+        <div class="route-chip"><span class="live-dot"></span><span>ROUTE 08</span><i></i><span id="route-destination">RIVERFRONT</span></div>
+        <button id="camera-button" class="icon-button" aria-label="Change camera">◉ <span>CAMERA</span></button>
+      </div>
+      <div class="left-panel glass">
+        <div class="panel-kicker">NEXT STOP <span id="stop-number">01 / 03</span></div>
+        <div class="stop-name" id="stop-name">OLD TOWN</div>
+        <div class="stop-distance"><b id="distance">420</b><span>m</span><span class="distance-track"><i id="distance-fill"></i></span></div>
+        <div class="stop-line"><span class="line-dot"></span><span id="stop-instruction">Follow the blue route markers</span></div>
+        <div class="divider"></div>
+        <div class="passenger-row"><span>ON BOARD</span><strong><b id="passengers">0</b><small> / 18</small></strong></div>
+        <div class="passenger-bar"><i id="passenger-fill"></i></div>
+      </div>
+      <div class="right-panel">
+        <div class="weather-pill glass"><span class="sun">☀</span><span>09:42 AM</span><i></i><span>FAIR</span></div>
+        <div class="mini-map glass"><canvas id="map" width="168" height="168"></canvas><div class="map-label">CITY CENTER</div></div>
+      </div>
+      <div class="toast" id="toast"></div>
+      <div class="objective" id="objective"><span class="objective-icon">✦</span><span><strong>START YOUR SHIFT</strong><small>Drive to the first stop and pick up passengers</small></span><button id="start-button">START DRIVE <b>↗</b></button></div>
+      <div class="bottom-ui">
+        <div class="speed-card glass"><div class="speed-top"><span>VEHICLE SPEED</span><span id="gear">D</span></div><div class="speed-readout"><b id="speed">0</b><span>KM/H</span></div><div class="speed-meter"><i id="speed-meter"></i></div><div class="speed-footer"><span>LIMIT <b>50</b></span><span id="status-text">PARKED</span></div></div>
+        <div class="drive-hint" id="drive-hint"><span>W</span><span>ACCELERATE</span><i>•</i><span>S</span><span>BRAKE</span><i>•</i><span>A</span><span>D</span><span>STEER</span></div>
+        <div class="controls-card glass"><div class="control-row"><span class="control-label">DOOR</span><button id="door-button" class="control-button"><span class="door-icon">↔</span><span id="door-label">CLOSED</span><kbd>E</kbd></button></div><div class="control-row"><span class="control-label">PARKING BRAKE</span><button id="brake-button" class="control-button"><span class="brake-icon">P</span><span id="brake-label">OFF</span><kbd>SPACE</kbd></button></div></div>
+      </div>
+      <div class="mobile-controls" aria-label="Touch driving controls">
+        <div class="steer-controls"><button data-control="left">◀</button><button data-control="right">▶</button></div>
+        <div class="pedal-controls"><button data-control="brake">BRAKE</button><button data-control="accelerate">GO</button></div>
+      </div>
+      <div class="end-screen" id="end-screen"><div class="end-card glass"><div class="end-emblem">✓</div><div class="panel-kicker">SHIFT COMPLETE</div><h1>Nice driving.</h1><p>You kept the city moving. Your passengers made it safely across town.</p><div class="score-grid"><div><b id="final-score">100</b><span>SAFETY SCORE</span></div><div><b id="final-passengers">0</b><span>PASSENGERS</span></div><div><b id="final-time">04:32</b><span>SHIFT TIME</span></div></div><button id="restart-button">DRIVE AGAIN <b>↗</b></button></div></div>
+      <div class="vignette"></div>
+    </div>
+  </main>
+  <script type="module" src="./game.js"></script>
+</body>
+</html>
