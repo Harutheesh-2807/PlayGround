@@ -1,0 +1,11 @@
+{
+  "outputDir": "screenshots",
+  "browser": {
+    "browserName": "chromium",
+    "launchOptions": {
+      "executablePath": "/usr/bin/chromium",
+      "headless": false,
+      "args": ["--no-sandbox", "--disable-dev-shm-usage"]
+    }
+  }
+}
